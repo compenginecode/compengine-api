@@ -1,0 +1,471 @@
+<xml>
+    <routes>
+        <route name="Options route for CORS" handler="PresentationLayer\Routes\Options\Options">
+            <endpoint method="OPTIONS">/(:name+)</endpoint>
+        </route>
+
+        <route name="Admin login" handler="PresentationLayer\Routes\PublicInterface\Timeseries\Get\Get">
+            <endpoint method="GET">/public/timeseries(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Admin login" handler="PresentationLayer\Routes\PublicInterface\Timeseries\Filter\Get\Get">
+            <endpoint method="GET">/public/timeseries/filter(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Admin login" handler="PresentationLayer\Routes\Login\Post\Post">
+            <endpoint method="POST">/login(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Receive front end boot options" handler="PresentationLayer\Routes\Boot\Get\Get">
+            <endpoint method="GET">/boot(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Initiate a comparison process" handler="PresentationLayer\Routes\Compare\Initiate\Post\Post">
+            <endpoint method="POST">/compare/initiate(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Start the conversion part of the comparison process" handler="PresentationLayer\Routes\Compare\ComparisonKey\Convert\Post\Post">
+            <endpoint method="POST">/compare/:comparisonKey/convert(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Retrieve the results of a comparison" handler="PresentationLayer\Routes\Compare\Results\ResultKey\Get\Get">
+            <endpoint method="GET">/compare/results/:resultKey(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Listen for comparison process progress" handler="PresentationLayer\Routes\Compare\ComparisonKey\Status\Get\Get">
+            <endpoint method="GET">/compare/:comparisonKey/status(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Prepare to download the timeseries search results" handler="PresentationLayer\Routes\Timeseries\Export\SearchResults\Post\Post">
+            <endpoint method="POST">/time-series/export/search-results(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Download the timeseries search results" handler="PresentationLayer\Routes\Timeseries\Export\SearchResults\Get\Get">
+            <endpoint method="GET">/time-series/export/search-results(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Get all category roots, or child categories" handler="PresentationLayer\Routes\Timeseries\Metadata\Categories\Get\Get">
+            <endpoint method="GET">/timeseries/metadata/categories(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Returns all tags that match the substring" handler="PresentationLayer\Routes\Timeseries\Metadata\Tags\Get\Get">
+            <endpoint method="GET">/timeseries/metadata/tags(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Returns all sources that match the substring" handler="PresentationLayer\Routes\Timeseries\Metadata\Sources\Get\Get">
+            <endpoint method="GET">/timeseries/metadata/sources(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Permanently contribute a timeseries" handler="PresentationLayer\Routes\Timeseries\Post\Post">
+            <endpoint method="POST">/timeseries(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Get a specific time series" handler="PresentationLayer\Routes\Timeseries\Slug\Get\Get">
+            <endpoint method="GET">/timeseries/:slug(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Get dashboard information" handler="PresentationLayer\Routes\Admin\Dashboard\Get\Get">
+            <endpoint method="GET">/admin/dashboard(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+
+        <route name="Get diagnostic information" handler="PresentationLayer\Routes\Admin\Diagnostics\Get\Get">
+            <endpoint method="GET">/admin/diagnostics(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Send a new bulk upload request" handler="PresentationLayer\Routes\BulkUploadRequests\Post\Post">
+            <endpoint method="POST">/bulk-upload-requests(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List new bulk upload requests" handler="PresentationLayer\Routes\Admin\BulkUploadRequests\Get\Get">
+            <endpoint method="GET">/admin/bulk-upload-requests(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Approve a bulk upload request" handler="PresentationLayer\Routes\Admin\BulkUploadRequests\Id\Approve\Post\Post">
+            <endpoint method="POST">/admin/bulk-upload-requests/:id/approve(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Deny a bulk upload request" handler="PresentationLayer\Routes\Admin\BulkUploadRequests\Id\Deny\Post\Post">
+            <endpoint method="POST">/admin/bulk-upload-requests/:id/deny(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Prove you're a human" handler="PresentationLayer\Routes\BulkUploadRequests\NotARobot\Post\Post">
+            <endpoint method="POST">/bulk-upload-requests/not-a-robot(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Upload and ingest a file" handler="PresentationLayer\Routes\BulkUploadRequests\Upload\Post\Post">
+            <endpoint method="POST">/bulk-upload-requests/upload(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Submit a bulk upload request" handler="PresentationLayer\Routes\BulkUploadRequests\Submit\Post\Post">
+            <endpoint method="POST">/bulk-upload-requests/submit(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Approve a bulk uploaded time-series batch" handler="PresentationLayer\Routes\Admin\TimeSeries\Batches\Id\Approve\Post\Post">
+            <endpoint method="POST">/admin/time-series/batches/:id/approve(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List bulk uploaded time series batches pending approval" handler="PresentationLayer\Routes\Admin\TimeSeries\Batches\Get\Get">
+            <endpoint method="GET">/admin/time-series/batches(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List unmoderated time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Moderation\Get\Get">
+            <endpoint method="GET">/admin/time-series/moderation(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Moderate a time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Id\Moderate\Post\Post">
+            <endpoint method="POST">/admin/time-series/:id/moderate(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete all Time Series matching search" handler="PresentationLayer\Routes\Admin\TimeSeries\Search\Delete\Post\Post">
+            <endpoint method="POST">/admin/time-series/search/delete(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Deny a bulk uploaded time-series batch" handler="PresentationLayer\Routes\Admin\TimeSeries\Batches\Id\Deny\Post\Post">
+            <endpoint method="POST">/admin/time-series/batches/:id/deny(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Download time series as CSV" handler="PresentationLayer\Routes\Admin\TimeSeries\Id\Download\Get\Get">
+            <endpoint method="GET">/admin/time-series/:id/download(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Contact Contributor" handler="PresentationLayer\Routes\Contributors\Id\Contact\Post\Post">
+            <endpoint method="POST">/contributors/:id/contact(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Unsubscribe Contributor" handler="PresentationLayer\Routes\Contributors\Id\Unsubscribe\Get\Get">
+            <endpoint method="GET">/contributors/:id/unsubscribe(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Generate Sitemap" handler="PresentationLayer\Routes\Sitemap\Get\Get">
+            <endpoint method="GET">/sitemap(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Browse Sources" handler="PresentationLayer\Routes\Sources\Browse\Get\Get">
+            <endpoint method="GET">/sources/browse(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Browse Tags" handler="PresentationLayer\Routes\Tags\Browse\Get\Get">
+            <endpoint method="GET">/tags/browse(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Browse Categories" handler="PresentationLayer\Routes\Categories\Browse\Get\Get">
+            <endpoint method="GET">/categories/browse(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Search Time Series" handler="PresentationLayer\Routes\Timeseries\Search\Post\Post">
+            <endpoint method="POST">/time-series/search(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Send contact email" handler="PresentationLayer\Routes\ContactUs\Post\Post">
+            <endpoint method="POST">/contact-us(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Request time series download token email" handler="PresentationLayer\Routes\Timeseries\Export\Post\Post">
+            <endpoint method="POST">/time-series/export(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Download exported time series file" handler="PresentationLayer\Routes\Timeseries\Export\Get\Get">
+            <endpoint method="GET">/time-series/export(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List all tags" handler="PresentationLayer\Routes\Admin\Tags\Get\Get">
+            <endpoint method="GET">/admin/tags(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Create a new tag" handler="PresentationLayer\Routes\Admin\Tags\Post\Post">
+            <endpoint method="POST">/admin/tags(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Update a tag" handler="PresentationLayer\Routes\Admin\Tags\Id\Put\Put">
+            <endpoint method="PUT">/admin/tags/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete a tag" handler="PresentationLayer\Routes\Admin\Tags\Id\Delete\Delete">
+            <endpoint method="DELETE">/admin/tags/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List all sources" handler="PresentationLayer\Routes\Admin\Sources\Get\Get">
+            <endpoint method="GET">/admin/sources(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Create source" handler="PresentationLayer\Routes\Admin\Sources\Post\Post">
+            <endpoint method="POST">/admin/sources(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Update a source" handler="PresentationLayer\Routes\Admin\Sources\Id\Put\Put">
+            <endpoint method="PUT">/admin/sources/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete a source" handler="PresentationLayer\Routes\Admin\Sources\Id\Delete\Delete">
+            <endpoint method="DELETE">/admin/sources/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List all categories" handler="PresentationLayer\Routes\Admin\Categories\Get\Get">
+            <endpoint method="GET">/admin/categories(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Create category" handler="PresentationLayer\Routes\Admin\Categories\Post\Post">
+            <endpoint method="POST">/admin/categories(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Update a category" handler="PresentationLayer\Routes\Admin\Categories\Id\Put\Put">
+            <endpoint method="PUT">/admin/categories/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>=
+
+        <route name="Delete a category" handler="PresentationLayer\Routes\Admin\Categories\Id\Delete\Delete">
+            <endpoint method="DELETE">/admin/categories/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List all duplicate time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Duplicates\Get\Get">
+            <endpoint method="GET">/admin/time-series/duplicates(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete duplicates for a given time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Id\Duplicates\Delete\Delete">
+            <endpoint method="DELETE">/admin/time-series/:id/duplicates(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete a time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Id\Delete\Delete">
+            <endpoint method="DELETE">/admin/time-series/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Search all time series" handler="PresentationLayer\Routes\Admin\TimeSeries\Search\Get\Get">
+            <endpoint method="GET">/admin/time-series/search(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Approve a category" handler="PresentationLayer\Routes\Admin\Categories\Id\Approve\Put\Put">
+            <endpoint method="PUT">/admin/categories/:id/approve(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Deny a category" handler="PresentationLayer\Routes\Admin\Categories\Id\Deny\Post\Post">
+            <endpoint method="POST">/admin/categories/:id/deny(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Approve a source" handler="PresentationLayer\Routes\Admin\Sources\Id\Approve\Put\Put">
+            <endpoint method="PUT">/admin/sources/:id/approve(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Deny a source" handler="PresentationLayer\Routes\Admin\Sources\Id\Deny\Post\Post">
+            <endpoint method="POST">/admin/sources/:id/deny(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Approve a tag" handler="PresentationLayer\Routes\Admin\Tags\Id\Approve\Put\Put">
+            <endpoint method="PUT">/admin/tags/:id/approve(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Deny a tag" handler="PresentationLayer\Routes\Admin\Tags\Id\Deny\Post\Post">
+            <endpoint method="POST">/admin/tags/:id/deny(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Delete a contributor" handler="PresentationLayer\Routes\Admin\Contributors\Id\Delete\Delete">
+            <endpoint method="DELETE">/admin/contributors/:id(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="List contributors" handler="PresentationLayer\Routes\Admin\Contributors\Get\Get">
+            <endpoint method="GET">/admin/contributors(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+        <route name="Search categories for admin" handler="PresentationLayer\Routes\Admin\Categories\Search\Get\Get">
+            <endpoint method="GET">/admin/categories/search(/)</endpoint>
+            <operators>
+                <operator name="CORS"></operator>
+            </operators>
+        </route>
+
+    </routes>
+</xml>

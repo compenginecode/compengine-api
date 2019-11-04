@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: "fontawesome";
+            src: url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff");
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>Hey!</p>
+    <p>Thanks contributing to CompEngine!</p>
+    <p>Here's what happened today:</p>
+
+    {% for notificationType, notificationList in notifications %}
+        <h3>{{ notificationType }}</h3>
+        <ul>
+            {% for notification in notificationList %}
+                <li>{{ notificationRenderer.render(notification) }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <br>
+    <p>
+        Cheers,<br>
+        <b>Comp Engine</b>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+.idea/
+vendor
+private/temp
+private/logs
+public/sitemap/
+private/proxies/
+.DS_Store

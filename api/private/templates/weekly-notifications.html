@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div>
+    <p>Hi {{ name }}</p>
+    <p></p>
+    <p>Here's what happened this week:</p>
+
+    {% for notificationType, notificationList in notifications %}
+    <h3>{{ notificationType }}</h3>
+    <ul>
+        {% for notification in notificationList %}
+        <li>{{ notificationRenderer.render(notification) | raw }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+    <br>
+    <p>
+        Cheers,<br>
+        <b>Comp Engine</b>
+    </p>
+    {% if unsubscribeLink %}
+        <p>Unsubscribe from weekly notifications here: <a href="{{ unsubscribeLink }}">{{ unsubscribeLink }}</a></p>
+    {% endif %}
+</div>
+
+</body>
+</html>

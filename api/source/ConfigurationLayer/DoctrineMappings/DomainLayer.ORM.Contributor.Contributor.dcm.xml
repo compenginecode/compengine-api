@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="DomainLayer\ORM\Contributor\Contributor" table="contributors"
+            repository-class="DomainLayer\ORM\Contributor\Repository\DatabaseContributorRepository">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="timestampCreated" column="timestamp_created" type="datetime" nullable="false" unique="false" />
+        <field name="timestampUpdated" column="timestamp_updated" type="datetime" nullable="false" unique="false" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="preUpdate" method="domainEntityPreUpdate"/>
+            <lifecycle-callback type="prePersist" method="domainEntityPrePersist"/>
+        </lifecycle-callbacks>
+
+        <field name="name" column="name" type="string" length="200" nullable="false" />
+        <field name="emailAddress" column="email_address" type="string" length="200" nullable="true" unique="true" />
+        <field name="wantsAggregationEmail" column="wants_aggregation_email" type="boolean" nullable="false" unique="false" />
+        <field name="unsubscribeToken" column="unsubscribe_token" length="64" nullable="true" />
+
+    </entity>
+
+</doctrine-mapping>

@@ -1,0 +1,17 @@
+0.29910714285714, CO_Embed2_Basic_tau.incircle_1, 0.361000
+0.57589285714286, CO_Embed2_Basic_tau.incircle_2, 0.321000
+39.00000000000000, FC_LocalSimple_mean1.taures, 0.322000
+-0.78225446555221, DN_HistogramMode_10, 0.019000
+0.04014646265056, SY_StdNthDer_1, 0.012000
+0.91615739942709, AC_9, 0.301000
+0.71722796540947, SB_MotifTwo_mean.hhh, 0.079000
+77, CO_FirstMin_ac, 0.315000
+0.38888888888889, DN_OutlierInclude_abs_001.mdrmd, 0.456000
+0.00001782472612, CO_trev_1.num, 0.011000
+15.87000000000000, SY_SpreadRandomLocal_50_100.meantaul, 3.063000
+0.29545454545455, SC_FluctAnal_2_rsrangefit_50_1_logi.prop_r1, 0.271000
+0.02230483271375, PH_Walker_prop_01.sw_propcross, 0.003000
+26.17000000000000, SY_SpreadRandomLocal_ac2_100.meantaul, 6.567000
+29.00000000000000, FC_LocalSimple_lfit.taures, 0.717000
+0.04504871811537, EN_SampEn_5_03.sampen1, 0.434000
+

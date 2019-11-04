@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: "fontawesome";
+            src: url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff");
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>Hi {{ name }},</p>
+    <p>Your bulk upload request has been approved.</p>
+    <p>
+        You can access the bulk upload page here:<br>
+        <a href="{{ bulkUploadUrl }}">{{ bulkUploadUrl }}</a>
+    </p>
+    <p>
+        All time series that are uploaded to CompEngine must be in a particular file format. This is so we can automatically understand how it's structured, and compare it against all the contributed time series. At present, time series must be one of the following formats:
+        <ul>
+            <li>Delimited text file (either with a TXT or CSV file extension)</li>
+            <ul>
+                <li>Comma separated</li>
+                <li>Tab separated</li>
+                <li>Line-break separated (both Windows, UNIX and OS/X formats)</li>
+            </ul>
+
+                <li>Excel file (first column contains the data)</li>
+            <ul>
+                <li>Excel 2007 and above (XLSX file format)</li>
+                <li>Earlier Excel versions (XLS file format)</li>
+            </ul>
+
+            <li>Audio files</li>
+            <ul>
+                <li>MP3 file format</li>
+                <li>WAV file format</li>
+            </ul>
+        </ul>
+    </p>
+    <p>Each file must not be larger than 500MB and the total size of the bulk upload must not surpass {{ (maxTotalBulkUploadSize / 1000000000) }}GB.</p>
+    <p>
+        Cheers,<br>
+        <b>Comp Engine</b>
+    </p>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" defer></script>
+
+<script>
+</script>
+
+</body>
+</html>

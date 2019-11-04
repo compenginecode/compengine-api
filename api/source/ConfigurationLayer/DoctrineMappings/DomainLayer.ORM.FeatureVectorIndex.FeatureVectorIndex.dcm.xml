@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="DomainLayer\ORM\FeatureVectorIndex\FeatureVectorIndex" table="feature_vector_indices">
+
+        <id name="id" type="guid" column="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="timestampCreated" column="timestamp_created" type="datetime" nullable="false" unique="false" />
+        <field name="timestampUpdated" column="timestamp_updated" type="datetime" nullable="false" unique="false" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="preUpdate" method="domainEntityPreUpdate"/>
+            <lifecycle-callback type="prePersist" method="domainEntityPrePersist"/>
+        </lifecycle-callbacks>
+
+        <embedded name="lshOptions" class="DomainLayer\ORM\LSHOptions\LSHOptions"/>
+
+        <one-to-many field="hashTables" target-entity="DomainLayer\ORM\HashTable\HashTable" mapped-by="index">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+
+    </entity>
+
+</doctrine-mapping>

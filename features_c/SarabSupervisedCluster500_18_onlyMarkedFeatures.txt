@@ -1,0 +1,57 @@
+------------------------------------------------------------------
+--- clusters of operations----------------------------------------
+--- name, n problems calculated, avg z-scored u-stat
+------------------------------------------------------------------
+***CO_Embed2_Basic_tau_incircle_1,85,-2.35
+------------------------------------------------------------------
+***CO_Embed2_Basic_tau_incircle_2,85,-2.35
+------------------------------------------------------------------
+***FC_LocalSimple_mean1_taures,80,-1.42
+------------------------------------------------------------------
+***SY_SpreadRandomLocal_ac2_100_meantaul,82,-2.06
+***SY_SpreadRandomLocal_ac2_100_meanac2,70,-1.91
+***[may be easiest?]CO_HistogramAMI_even_2_2,85,-1.86
+------------------------------------------------------------------
+***DN_HistogramMode_10,84,-2.78
+------------------------------------------------------------------
+(*)CO_Embed2_Dist_tau_d_expfit_meandiff,85,-3.28
+[****AS SIMPLE AS IT GETS]SY_StdNthDer_1,85,-2.23
+------------------------------------------------------------------
+[***]FC_LocalSimple_mean4_stderr,85,-2.51
+[*** EASIER:]CO_trev_3_denom,85,-2.35
+[***Simpler, and similar:]AC_9,85,-1.99
+------------------------------------------------------------------
+[***CHECK ALEKS]SB_MotifTwo_mean_hhh,85,-2.13
+------------------------------------------------------------------
+[***Check hctsa for C code -- only need to compute SampEn1]EN_SampEn_5_03_sampen1,85,-1.82
+------------------------------------------------------------------
+[***]first_min_acf,85,-2.59
+------------------------------------------------------------------
+[***]DN_OutlierInclude_abs_001_mdrmd,84,-1.41
+------------------------------------------------------------------
+[***SUPER-SIMPLE-ONE-LINE]CO_trev_1_num,85,-1.31
+------------------------------------------------------------------
+[***]FC_LocalSimple_lfittau_taures,85,-1.54
+------------------------------------------------------------------
+[***A little more nuanced]SY_SpreadRandomLocal_50_100_meantaul,84,-1.32
+------------------------------------------------------------------
+[relatively involved]
+SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1,83,-0.85
+SC_FluctAnal_2_rsrangefit_50_1_logi_logtausplit,83,-0.83
+SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1,82,-0.65
+SC_FluctAnal_2_range_50_logi_prop_r1,82,-0.51
+SC_FluctAnal_2_range_50_logi_logtausplit,82,-0.49
+SC_FluctAnal_2_endptdiff_50_logi_logtausplit,81,-0.37
+SC_FluctAnal_2_endptdiff_50_logi_prop_r1,82,-0.32
+------------------------------------------------------------------
+[not simple -- don't know if it's necessary]
+PH_ForcePotential_sine_1_1_1_proppos,83,-1.44
+------------------------------------------------------------------
+[requires FFT -- don't know if it's necessary]
+SP_Summaries_pgram_hamm_maxw,77,-1.59
+SP_Summaries_welch_rect_centroid,79,-1.25
+SP_Summaries_pgram_hamm_centroid,79,-0.86
+------------------------------------------------------------------
+[requires FFT -- don't know if it's necessary]
+SP_Summaries_welch_rect_maxw,74,-0.65
+------------------------------------------------------------------

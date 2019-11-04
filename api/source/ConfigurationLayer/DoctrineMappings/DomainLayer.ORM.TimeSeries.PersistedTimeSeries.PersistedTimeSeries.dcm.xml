@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="DomainLayer\ORM\TimeSeries\PersistedTimeSeries\PersistedTimeSeries" table="timeseries"
+            repository-class="DomainLayer\ORM\TimeSeries\PersistedTimeSeries\Repository\DatabaseTimeSeriesRepository">
+
+        <id name="id" type="guid" column="id">
+            <generator strategy="UUID"/>
+        </id>
+        <field name="timestampCreated" column="timestamp_created" type="datetime" nullable="false" unique="false" />
+        <field name="timestampUpdated" column="timestamp_updated" type="datetime" nullable="false" unique="false" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="preUpdate" method="domainEntityPreUpdate"/>
+            <lifecycle-callback type="prePersist" method="domainEntityPrePersist"/>
+        </lifecycle-callbacks>
+
+        <field name="name" column="name" type="string" length="200" nullable="false" unique="true" />
+        <field name="origin" column="origin" type="string" length="100" nullable="false" unique="false" />
+        <field name="slug" column="slug" type="string" length="512" nullable="true" unique="false" />
+        <field name="description" column="description" type="text" nullable="false" unique="false" />
+        <field name="downSampledDataPoints30" column="downSampled_data_points_30" type="array" nullable="false" unique="false" />
+        <field name="downSampledDataPoints1000" column="downSampled_data_points_1000" type="array" nullable="false" unique="false" />
+        <field name="documentId" column="document_id" type="string" length="200" nullable="true" unique="false" />
+        <field name="hash" column="hash" type="string" length="64" nullable="true" unique="false" />
+        <field name="isApproved" column="is_approved" type="boolean" />
+        <field name="isRejected" column="is_rejected" type="boolean" />
+
+        <one-to-one field="dataPoints" target-entity="DomainLayer\ORM\DataPoints\DataPoints" fetch="LAZY">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-one>
+
+        <many-to-one field="source" inversed-by="persistedTimeSeries" target-entity="DomainLayer\ORM\Source\Source">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+
+        <many-to-one field="category" inversed-by="persistedTimeSeries" target-entity="DomainLayer\ORM\Category\Category">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+
+        <many-to-one field="contributor" target-entity="DomainLayer\ORM\Contributor\Contributor">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+
+        <many-to-many field="tags" target-entity="DomainLayer\ORM\Tag\Tag">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <join-table name="timeseries_xref_tags">
+                <join-columns>
+                    <join-column name="timeseries_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="tag_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <embedded name="samplingInformation" class="DomainLayer\ORM\SamplingInformation\SamplingInformation" />
+
+    </entity>
+
+</doctrine-mapping>

@@ -1,0 +1,30 @@
+{
+"query": {
+"match": {
+"_index": "indexKey"
+}
+},
+"size": 0,
+"aggregations": [
+{
+"m0": {
+"percentile_ranks": {
+"field": "normalizedFeatureVector.m0",
+"values": [
+1
+]
+}
+}
+},
+{
+"m1": {
+"percentile_ranks": {
+"field": "normalizedFeatureVector.m1",
+"values": [
+2
+]
+}
+}
+}
+]
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="DomainLayer\ORM\Category\Category" table="categories"
+        repository-class="DomainLayer\ORM\Category\Repository\DatabaseCategoryRepository">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="timestampCreated" column="timestamp_created" type="datetime" nullable="false" unique="false" />
+        <field name="timestampUpdated" column="timestamp_updated" type="datetime" nullable="false" unique="false" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="preUpdate" method="domainEntityPreUpdate"/>
+            <lifecycle-callback type="prePersist" method="domainEntityPrePersist"/>
+        </lifecycle-callbacks>
+
+        <field name="name" column="name" type="string" length="512" nullable="false" unique="false" />
+        <field name="slug" length="512" unique="false" />
+
+        <embedded name="approvalStatus" class="DomainLayer\ORM\ApprovalStatus\ApprovalStatus" />
+
+        <one-to-many field="persistedTimeSeries" mapped-by="category" target-entity="DomainLayer\ORM\TimeSeries\PersistedTimeSeries\PersistedTimeSeries" />
+
+        <one-to-many field="children" target-entity="DomainLayer\ORM\Category\Category" mapped-by="parent"/>
+        <many-to-one field="parent" target-entity="DomainLayer\ORM\Category\Category" inversed-by="children">
+            <join-column on-delete="CASCADE"></join-column>
+        </many-to-one>
+
+    </entity>
+
+</doctrine-mapping>
