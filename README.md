@@ -1,20 +1,24 @@
-## Tldr
-This is the API for the CompEngine project. More documentation will arrive shortly. In the mean time, you can set it up by building the docker container via "docker build" and inject any environment variables with the same names as those options in /api/private/configuration/configuration.ini
+## CompEngine API
+This is the API for [CompEngine](https://www.comp-engine.org/).
+You can set it up by building the docker container via "docker build" and inject any environment variables with the same names as those options in ``/api/private/configuration/configuration.ini`.
+
 ## Setup the database
+
 To update the current database according to the XML definitions run:
+
     php vendor/doctrine/orm/bin/doctrine orm:schema-tool:update --dump-sql --force
 
-To re-generate all proxies run:
+To regenerate all proxies run:
+
     php vendor/doctrine/orm/bin/doctrine orm:generate-proxies
 
-
-To install
+To install:
 
     php install.php && cd [..]imperial-college-api\private\processes\ingest
         && php generate-intermediates.php "[..]imperial-college-api\private\sample\originals
-        
+
 Output style:
-        
+
         1.00000000000000, CO_Embed2_Basic_tau.incircle_1, 15.745000
         1.00000000000000, CO_Embed2_Basic_tau.incircle_2, 14.182000
         3.00000000000000, FC_LocalSimple_mean1.taures, 13.349000
@@ -31,6 +35,3 @@ Output style:
         2.52000000000000, SY_SpreadRandomLocal_ac2_100.meantaul, 9.595000
         2.00000000000000, FC_LocalSimple_lfit.taures, 15.363000
         0.82131403309804, EN_SampEn_5_03.sampen1, 178.556000
-        
-        
-      
