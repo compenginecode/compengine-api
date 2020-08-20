@@ -2,6 +2,8 @@
 This is the API for [CompEngine](https://www.comp-engine.org/).
 You can set it up by building the docker container via "docker build" and inject any environment variables with the same names as those options in ``/api/private/configuration/configuration.ini`.
 
+The public API to the hosted version of CompEngine can [be seen here](https://www.comp-engine.org/#!the-public-api).
+
 ## System requirements
 
 This project runs on PHP 5.6, MySQL 5.6 or MySQL 5.7, Redis and Elasticsearch version 2. The system resources required depends on the number of time series present. 
