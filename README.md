@@ -2,7 +2,12 @@
 This is the API for [CompEngine](https://www.comp-engine.org/).
 You can set it up by building the docker container via "docker build" and inject any environment variables with the same names as those options in ``/api/private/configuration/configuration.ini`.
 
+## System requirements
+
+This project runs on PHP 5.6, MySQL 5.6 or MySQL 5.7, Redis and Elasticsearch version 2. The system resources required depends on the number of time series present. 
+
 ## Setup the database
+The database, Redis and Elasticsearch must be running before the database is setup.
 
 To update the current database according to the XML definitions run:
 
@@ -16,6 +21,8 @@ To install:
 
     php install.php && cd [..]imperial-college-api\private\processes\ingest
         && php generate-intermediates.php "[..]imperial-college-api\private\sample\originals
+        
+Finally, make sure the absolute path to the C feature generation program is correct. This is stored in the database inside the ``feature_vector_families`` table in the column ``generator_script_path``. This should be something like "php /var/my_c_program".
 
 Output style:
 
